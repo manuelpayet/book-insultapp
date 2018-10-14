@@ -35,7 +35,7 @@ public class InsultGenerator {
 			final InetAddress inetAddress = InetAddress.getLocalHost();
 			theInsult += "from " + inetAddress.getHostName();;
 		} catch (Exception e) {
-			return "Database connection problem!";
+			return "Database connection problem! " + e.toString();
 		}
         
 		return theInsult;
