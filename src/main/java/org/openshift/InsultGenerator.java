@@ -3,6 +3,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.net.InetAddress;
+
+
 public class InsultGenerator {
 	public String generateInsult() {
 		String vowels = "AEIOU";
@@ -32,6 +35,9 @@ public class InsultGenerator {
 		} catch (Exception e) {
 			return "Database connection problem!";
 		}
-		return theInsult;
+        
+        final InetAddress inetAddress = InetAddress.getLocalHost();
+        
+		return theInsult + "from " + inetAddress.getHostName();
 	}
 }
