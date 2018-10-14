@@ -7,7 +7,7 @@ import java.net.InetAddress;
 
 
 public class InsultGenerator {
-	public String generateInsult() throws Exception {
+	public String generateInsult() {
 		String vowels = "AEIOU";
 		String article = "an";
 		String theInsult = "";
@@ -32,12 +32,12 @@ public class InsultGenerator {
 				rs.close();
 				connection.close();
 			}
+			final InetAddress inetAddress = InetAddress.getLocalHost();
+			theInsult += "from " + inetAddress.getHostName();;
 		} catch (Exception e) {
 			return "Database connection problem!";
 		}
         
-        final InetAddress inetAddress = InetAddress.getLocalHost();
-        
-		return theInsult + "from " + inetAddress.getHostName();
+		return theInsult;
 	}
 }
